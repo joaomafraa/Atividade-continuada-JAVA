@@ -7,6 +7,10 @@ public class ValidadorCpfCnpj {
             return false;
         }
 
+        if (temTodosDigitosIguais(cpf)) {
+            return false;
+        }
+
         int soma = 0;
         int peso = 10;
 
@@ -52,6 +56,10 @@ public class ValidadorCpfCnpj {
 
     public static boolean ehCnpjValido(String cnpj) {
         if (cnpj == null || cnpj.length() != 14 || !StringUtils.temSomenteNumeros(cnpj)) {
+            return false;
+        }
+
+        if (temTodosDigitosIguais(cnpj)) {
             return false;
         }
 
@@ -104,5 +112,14 @@ public class ValidadorCpfCnpj {
         }
 
         return digito2 == cnpj.charAt(13) - '0';
+    }
+
+    private static boolean temTodosDigitosIguais(String documento) {
+        for (int i = 1; i < documento.length(); i++) {
+            if (documento.charAt(i) != documento.charAt(0)) {
+                return false;
+            }
+        }
+        return true;
     }
 }

@@ -6,8 +6,8 @@ import java.io.Serializable;
 
 class ComparadoraObjetosSerial {
     static boolean compareObjectsSerial(Serializable s1, Serializable s2) {
-        ByteArrayOutputStream bos1 = null;
-        ByteArrayOutputStream bos2 = null;
+        ByteArrayOutputStream  bos1 = null;
+        ByteArrayOutputStream  bos2 = null;
         ObjectOutputStream oos1 = null;
         ObjectOutputStream oos2 = null;
         boolean ret = true;
@@ -20,8 +20,8 @@ class ComparadoraObjetosSerial {
             oos2.writeObject(s2);
             byte[] b1 = bos1.toByteArray();
             byte[] b2 = bos2.toByteArray();
-            for (int i = 0; i < b1.length; i++) {
-                if (b1[i] != b2[i]) {
+            for (int i=0; i<b1.length; i++) {
+                if (b2[i] != b1[i]) {
                     ret = false;
                     break;
                 }
