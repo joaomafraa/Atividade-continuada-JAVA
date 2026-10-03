@@ -1,6 +1,7 @@
 package br.edu.cs.poo.ac.seguro.entidades;
+import java.io.Serializable;
 
-public class Endereco {
+public class Endereco implements Serializable{
     private String logradouro;
     private String cep;
     private String numero;
@@ -8,6 +9,7 @@ public class Endereco {
     private String pais;
     private String estado;
     private String cidade;
+    private static final long serialVersionUID = 1L;
 
     public Endereco(String logradouro, String cep, String numero, String complemento, String pais,String estado, String cidade){
         this.logradouro=logradouro;
